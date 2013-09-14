@@ -1,0 +1,7 @@
+Create initial website with jquery
+
+install SpecFlow extension to VS
+create feature in VS
+install specflow for NUnit/mstest in project
+change specflow to use mstest
+
