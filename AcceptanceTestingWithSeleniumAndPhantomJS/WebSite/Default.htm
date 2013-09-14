@@ -7,32 +7,35 @@
         <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-        <h1>Test Selenium and PhantomJS!</h1>
-        <button class="btn btn-primary" id="btnGetLocation" type="submit" onclick="javascript: getLocation();">Get location</button>    
-        <dl class="dl-horizontal">
-            <dt>ip</dt>
-            <dd id="ip"></dd>
-            <dt>country_code</dt>
-            <dd id="country_code"></dd>
-            <dt>country_name</dt>
-            <dd id="country_name"></dd>
-            <dt>region_code</dt>
-            <dd id="region_code"></dd>
-            <dt>region_name</dt>
-            <dd id="region_name"></dd>
-            <dt>city</dt>
-            <dd id="city"></dd>
-            <dt>zipcode</dt>
-            <dd id="zipcode"></dd>
-            <dt>latitude</dt>
-            <dd id="latitude"></dd>
-            <dt>longitude</dt>
-            <dd id="longitude"></dd>
-            <dt>metro_code</dt>
-            <dd id="metro_code"></dd>
-            <dt>areacode</dt>
-            <dd id="areacode"></dd>
-        </dl>
+        <div class="container">
+
+            <h1>Test Selenium and PhantomJS!</h1>
+            <button class="btn btn-primary" id="btnGetLocation" type="button" onclick="javascript: getLocation();">Get location</button>    
+            <dl class="dl-horizontal">
+                <dt>ip</dt>
+                <dd id="ip"></dd>
+                <dt>country_code</dt>
+                <dd id="country_code"></dd>
+                <dt>country_name</dt>
+                <dd id="country_name"></dd>
+                <dt>region_code</dt>
+                <dd id="region_code"></dd>
+                <dt>region_name</dt>
+                <dd id="region_name"></dd>
+                <dt>city</dt>
+                <dd id="city"></dd>
+                <dt>zipcode</dt>
+                <dd id="zipcode"></dd>
+                <dt>latitude</dt>
+                <dd id="latitude"></dd>
+                <dt>longitude</dt>
+                <dd id="longitude"></dd>
+                <dt>metro_code</dt>
+                <dd id="metro_code"></dd>
+                <dt>areacode</dt>
+                <dd id="areacode"></dd>
+            </dl>
+        </div>
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script type="text/javascript" src="Scripts/jquery-2.0.3.min.js"></script>
@@ -42,6 +45,8 @@
 
         <script type="text/javascript">
             function getLocation() {
+                $("dd").text("");
+
                 $.ajax({
                     url: "http://freegeoip.net/json/",
                     dataType: "json",

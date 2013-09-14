@@ -31,7 +31,7 @@ namespace AcceptanceTests.Support
 
         private static int StartIisExpress(string sitePath, string sitePort)
         {
-            var arguments = string.Format(@"/port:{1} /path:""{0}""", sitePath, sitePort);
+            var arguments = string.Format(@"/port:{1} /path:""{0}"" /systray:false", sitePath, sitePort);
             var startInfo = new ProcessStartInfo(IisExpressPath, arguments);
             // no window
             startInfo.RedirectStandardOutput = true;
