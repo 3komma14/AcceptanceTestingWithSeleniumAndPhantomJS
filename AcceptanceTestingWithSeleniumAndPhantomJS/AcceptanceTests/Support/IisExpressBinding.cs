@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
 using TechTalk.SpecFlow;
 
-namespace AcceptanceTests
+namespace AcceptanceTests.Support
 {
     [Binding]
     public class IisExpressBinding

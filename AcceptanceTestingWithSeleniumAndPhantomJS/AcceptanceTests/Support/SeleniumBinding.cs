@@ -1,21 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using OpenQA.Selenium;
+using OpenQA.Selenium.IE;
 using OpenQA.Selenium.PhantomJS;
 using TechTalk.SpecFlow;
 
-namespace AcceptanceTests
+namespace AcceptanceTests.Support
 {
     [Binding]
     public class SeleniumBinding
     {
-        private static PhantomJSDriver _webdriver;
+        private static IWebDriver _webdriver;
 
         [BeforeTestRun]
         public static void BeforeTestRun()
         {
-            _webdriver = new PhantomJSDriver();
+            _webdriver = CreatePhantomJSDriver();
+            //_webdriver = CreateInternetExplorerDriver();
             Console.WriteLine("Created PhantomJSDriver");
         }
 
@@ -39,6 +39,21 @@ namespace AcceptanceTests
         {
             Console.WriteLine("Removing PhantomJSDriver from ScenarioContext");
             ScenarioContext.Current.Remove("WebDriver");
+        }
+
+        private static IWebDriver CreatePhantomJSDriver()
+        {
+            var service = PhantomJSDriverService.CreateDefaultService();
+            service.ProxyType = "none";
+            //service.WebSecurity = false;
+            //service.DiskCache = true;
+            return new PhantomJSDriver(service);
+        }
+
+        private static IWebDriver CreateInternetExplorerDriver()
+        {
+            var options = new InternetExplorerOptions() { IntroduceInstabilityByIgnoringProtectedModeSettings = true };
+            return new InternetExplorerDriver(options);
         }
     }
 }

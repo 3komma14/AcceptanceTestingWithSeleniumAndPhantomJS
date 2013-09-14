@@ -1,31 +1,70 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>My Web Site</title>
-    <script type="text/javascript" src="Scripts/jquery-2.0.3.min.js"></script>
-    <script type="text/javascript" src="Scripts/json2.min.js"></script>
-    <script type="text/javascript">
-        function getLocation() {
-            $.ajax({
-                url: "http://freegeoip.net/json/",
-                dataType: "json",
-                crossDomain: true
-            })
-                .done(function(data) {
-                    $("#data").text(JSON.stringify(data));
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Web Site</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Test Selenium and PhantomJS!</h1>
+        <button class="btn btn-primary" id="btnGetLocation" type="submit" onclick="javascript: getLocation();">Get location</button>    
+        <dl class="dl-horizontal">
+            <dt>ip</dt>
+            <dd id="ip"></dd>
+            <dt>country_code</dt>
+            <dd id="country_code"></dd>
+            <dt>country_name</dt>
+            <dd id="country_name"></dd>
+            <dt>region_code</dt>
+            <dd id="region_code"></dd>
+            <dt>region_name</dt>
+            <dd id="region_name"></dd>
+            <dt>city</dt>
+            <dd id="city"></dd>
+            <dt>zipcode</dt>
+            <dd id="zipcode"></dd>
+            <dt>latitude</dt>
+            <dd id="latitude"></dd>
+            <dt>longitude</dt>
+            <dd id="longitude"></dd>
+            <dt>metro_code</dt>
+            <dd id="metro_code"></dd>
+            <dt>areacode</dt>
+            <dd id="areacode"></dd>
+        </dl>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script type="text/javascript" src="Scripts/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="Scripts/json2.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript">
+            function getLocation() {
+                $.ajax({
+                    url: "http://freegeoip.net/json/",
+                    dataType: "json",
+                    crossDomain: true
                 })
-                .error(function(jqXHR, textStatus, errorThrown) {
-                    $("#location").text(textStatus);
-                });
-        }
-    </script>
-</head>
-<body>
-    
-    <button id="btnGetLocation" type="submit" onclick="javascript: getLocation();">Get location</button>    
-    <div>
-        <label>Data:</label>
-        <div id="data"></div>
-    </div>
-</body>
+                    .done(function (data) {
+                        $("#ip").text(data.ip);
+                        $("#country_code").text(data.country_code);
+                        $("#country_name").text(data.country_name);
+                        $("#region_code").text(data.region_code);
+                        $("#region_name").text(data.region_name);
+                        $("#city").text(data.city);
+                        $("#zipcode").text(data.zipcode);
+                        $("#latitude").text(data.latitude);
+                        $("#longitude").text(data.longitude);
+                        $("#metro_code").text(data.metro_code);
+                        $("#areacode").text(data.areacode);
+                    })
+                    .error(function (jqXHR, textStatus, errorThrown) {
+                        alert(textStatus);
+                    });
+            }
+        </script>
+
+    </body>
 </html>

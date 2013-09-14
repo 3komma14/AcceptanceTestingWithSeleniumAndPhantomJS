@@ -6,3 +6,7 @@ install specflow for NUnit/mstest in project
 change specflow to use mstest
 
 Added binding for Selenium.. Got WindowsSecurityAlert.png when running tests
+
+Added binding for IisExpress. Start new instance of website before tests are run. Close after last test
+
+

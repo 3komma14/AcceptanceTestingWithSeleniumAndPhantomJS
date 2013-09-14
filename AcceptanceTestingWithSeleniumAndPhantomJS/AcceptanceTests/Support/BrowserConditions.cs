@@ -1,7 +1,7 @@
 using System;
 using OpenQA.Selenium;
 
-namespace AcceptanceTests
+namespace AcceptanceTests.Support
 {
     public class BrowserConditions
     {
