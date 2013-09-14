@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Diagnostics;
 using TechTalk.SpecFlow;
 
@@ -15,8 +16,8 @@ namespace AcceptanceTests.Support
         {
             Console.WriteLine("Starting IISExpress");
 
-            const string sitePath = @"C:\Projects\AcceptanceTestingWithSeleniumAndPhantomJS\AcceptanceTestingWithSeleniumAndPhantomJS\WebSite";
-            const string sitePort = @"8080";
+            var sitePath = ConfigurationManager.AppSettings["sitePath"];
+            var sitePort = ConfigurationManager.AppSettings["sitePort"];
 
             _pid = StartIisExpress(sitePath, sitePort);
         }
