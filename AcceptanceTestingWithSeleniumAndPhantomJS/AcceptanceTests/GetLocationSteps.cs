@@ -17,7 +17,8 @@ namespace AcceptanceTests
         [Given(@"I have opened the webpage")]
         public void GivenIHaveOpenedTheWebpage()
         {
-            WebDriver.Url = "http://localhost:59832/";
+            //WebDriver.Url = "http://localhost:59832/";
+            WebDriver.Url = "http://localhost:8080/";
         }
         
         [When(@"I press submit button")]
