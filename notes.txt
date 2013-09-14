@@ -5,3 +5,4 @@ create feature in VS
 install specflow for NUnit/mstest in project
 change specflow to use mstest
 
+Added binding for Selenium.. Got WindowsSecurityAlert.png when running tests
