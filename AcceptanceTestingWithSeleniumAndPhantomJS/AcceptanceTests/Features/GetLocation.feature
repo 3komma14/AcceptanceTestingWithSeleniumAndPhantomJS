@@ -23,7 +23,6 @@ Scenario: Get current location4
 	When I press submit button
 	Then my location should be visible on the screen
 
-Scenario: Get current location5
+Scenario: Button is enabled
 	Given I have opened the webpage
-	When I press submit button
-	Then my location should be visible on the screen
+	Then the I should be able to click on button

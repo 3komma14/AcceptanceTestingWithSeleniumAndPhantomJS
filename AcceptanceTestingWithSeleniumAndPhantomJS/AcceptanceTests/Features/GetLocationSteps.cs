@@ -50,5 +50,14 @@ namespace AcceptanceTests.Features
             Assert.IsFalse(string.IsNullOrEmpty(latitude.Text));
             Assert.IsFalse(string.IsNullOrEmpty(longitude.Text));
         }
+
+        [Then(@"the I should be able to click on button")]
+        public void ThenTheIShouldBeAbleToClickOnButton()
+        {
+            var element = WebDriver.FindElement(By.Id("btnGetLocation"));
+
+            Assert.AreEqual(true, element.Enabled);
+        }
+
     }
 }

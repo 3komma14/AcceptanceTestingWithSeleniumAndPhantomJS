@@ -45,10 +45,17 @@ namespace AcceptanceTests.Support
 
         private static void StopProcess(int processId)
         {
-            var process = Process.GetProcessById(processId);
-            if (!process.HasExited)
+            try
             {
-                process.Kill();
+                var process = Process.GetProcessById(processId);
+                if (!process.HasExited)
+                {
+                    process.Kill();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
     }
