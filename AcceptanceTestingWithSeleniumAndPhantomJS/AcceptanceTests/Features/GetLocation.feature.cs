@@ -68,19 +68,27 @@ namespace AcceptanceTests.Features
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 6
+#line 7
+ testRunner.Given("I have opened the webpage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Get current ip address")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GetLocation")]
         public virtual void GetCurrentIpAddress()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get current ip address", ((string[])(null)));
-#line 6
-this.ScenarioSetup(scenarioInfo);
-#line 7
- testRunner.Given("I have opened the webpage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 8
- testRunner.When("I press submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 9
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 10
+ testRunner.When("I press submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 11
  testRunner.Then("my ip should be visible on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -92,13 +100,13 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GetCurrentLocation()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get current location", ((string[])(null)));
-#line 11
-this.ScenarioSetup(scenarioInfo);
-#line 12
- testRunner.Given("I have opened the webpage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 13
- testRunner.When("I press submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
 #line 14
+ testRunner.When("I press submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 15
  testRunner.Then("my location should be visible on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -110,10 +118,10 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GetCurrentLocation3()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get current location3", ((string[])(null)));
-#line 16
-this.ScenarioSetup(scenarioInfo);
 #line 17
- testRunner.Given("I have opened the webpage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
 #line 18
  testRunner.When("I press submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 19
@@ -130,11 +138,11 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get current location4", ((string[])(null)));
 #line 21
 this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
 #line 22
- testRunner.Given("I have opened the webpage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 23
  testRunner.When("I press submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 24
+#line 23
  testRunner.Then("my location should be visible on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -146,11 +154,11 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void ButtonIsEnabled()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Button is enabled", ((string[])(null)));
-#line 26
+#line 25
 this.ScenarioSetup(scenarioInfo);
-#line 27
- testRunner.Given("I have opened the webpage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 28
+#line 6
+this.FeatureBackground();
+#line 26
  testRunner.Then("the I should be able to click on button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

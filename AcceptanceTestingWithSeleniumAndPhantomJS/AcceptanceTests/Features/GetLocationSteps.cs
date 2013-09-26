@@ -1,8 +1,7 @@
-﻿using System;
-using AcceptanceTests.Support;
+﻿using AcceptanceTests.PageObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.Support.PageObjects;
 using TechTalk.SpecFlow;
 
 namespace AcceptanceTests.Features
@@ -10,6 +9,8 @@ namespace AcceptanceTests.Features
     [Binding]
     public class GetLocationSteps
     {
+        private GetLocationPage _page;
+
         public IWebDriver WebDriver
         {
             get { return ScenarioContext.Current["WebDriver"] as IWebDriver; }
@@ -19,44 +20,33 @@ namespace AcceptanceTests.Features
         public void GivenIHaveOpenedTheWebpage()
         {
             WebDriver.Url = "http://localhost:8080/";
+            _page = PageFactory.InitElements<GetLocationPage>(WebDriver);
         }
         
         [When(@"I press submit button")]
         public void WhenIPressSubmitButton()
         {
-            WebDriver.FindElement(By.Id("btnGetLocation")).Click();
+            //WebDriver.FindElement(By.Id("btnGetLocation")).Click();
+            _page.GetCurrentLocation();
         }
 
         [Then(@"my ip should be visible on the screen")]
         public void ThenMyIpShouldBeVisibleOnTheScreen()
         {
-            var wait = new WebDriverWait(WebDriver, TimeSpan.FromSeconds(3));
-
-            wait.Until(BrowserConditions.AjaxIsFinished());
-            var element = WebDriver.FindElement(By.Id("ip"));
-
-            Assert.IsFalse(string.IsNullOrEmpty(element.Text));
+            Assert.IsFalse(string.IsNullOrEmpty(_page.IpAddress.Text));
         }
 
         [Then(@"my location should be visible on the screen")]
         public void ThenMyLocationShouldBeVisibleOnTheScreen()
         {
-            var wait = new WebDriverWait(WebDriver, TimeSpan.FromSeconds(3));
-
-            wait.Until(BrowserConditions.AjaxIsFinished());
-            var latitude = WebDriver.FindElement(By.Id("latitude"));
-            var longitude = WebDriver.FindElement(By.Id("longitude"));
-
-            Assert.IsFalse(string.IsNullOrEmpty(latitude.Text));
-            Assert.IsFalse(string.IsNullOrEmpty(longitude.Text));
+            Assert.IsFalse(string.IsNullOrEmpty(_page.Latitude.Text));
+            Assert.IsFalse(string.IsNullOrEmpty(_page.Longitude.Text));
         }
 
         [Then(@"the I should be able to click on button")]
         public void ThenTheIShouldBeAbleToClickOnButton()
         {
-            var element = WebDriver.FindElement(By.Id("btnGetLocation"));
-
-            Assert.AreEqual(true, element.Enabled);
+            Assert.AreEqual(true, _page.BtnGetLocation.Enabled);
         }
 
     }
