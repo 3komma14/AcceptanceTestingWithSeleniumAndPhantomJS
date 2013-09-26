@@ -19,8 +19,8 @@ namespace AcceptanceTests.Support
         {
             _webdriver = CreatePhantomJSDriver();
             //_webdriver = CreateInternetExplorerDriver();
-            //_webdriver = CreateChromeDriver();
             //_webdriver = CreateFirefoxDriver();
+            //_webdriver = CreateChromeDriver();
             Console.WriteLine("Created WebDriver");
         }
 

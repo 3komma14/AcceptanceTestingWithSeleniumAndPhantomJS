@@ -10,7 +10,8 @@
         <div class="container">
 
             <h1>Test Selenium and PhantomJS!</h1>
-            <button class="btn btn-primary" id="btnGetLocation" type="button" onclick="javascript: getLocation();">Get location</button>    
+            <button class="btn btn-primary" id="btnGetLocation" type="button" onclick="javascript: getLocation();">Get location</button>
+            <span id="ajaxTime"></span>    
             <dl class="dl-horizontal">
                 <dt>ip</dt>
                 <dd id="ip"></dd>
@@ -47,6 +48,7 @@
             function getLocation() {
                 $("dd").text("");
 
+                var startTime = new Date();
                 $.ajax({
                     url: "http://freegeoip.net/json/",
                     dataType: "json",
@@ -64,6 +66,9 @@
                         $("#longitude").text(data.longitude);
                         $("#metro_code").text(data.metro_code);
                         $("#areacode").text(data.areacode);
+
+                        var endTime = new Date();
+                        $("#ajaxTime").text("Ajax call took: " + Math.abs(endTime.getTime() - startTime.getTime()) + "ms");
                     })
                     .error(function (jqXHR, textStatus, errorThrown) {
                         alert(textStatus);
