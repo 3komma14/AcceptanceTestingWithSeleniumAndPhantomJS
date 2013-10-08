@@ -17,8 +17,8 @@ namespace AcceptanceTests.Support
         [BeforeTestRun]
         public static void BeforeTestRun()
         {
-            _webdriver = CreatePhantomJSDriver();
-            //_webdriver = CreateInternetExplorerDriver();
+            //_webdriver = CreatePhantomJSDriver();
+            _webdriver = CreateInternetExplorerDriver();
             //_webdriver = CreateFirefoxDriver();
             //_webdriver = CreateChromeDriver();
             Console.WriteLine("Created WebDriver");

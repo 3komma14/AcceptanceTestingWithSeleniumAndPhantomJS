@@ -1,0 +1,2 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Json.aspx.cs" Inherits="WebSite.Json" ContentType="application/json" %>
+{"ip":"46.9.83.10","country_code":"NO","country_name":"Norway","region_code":"01","region_name":"Akershus","city":"Oslo","zipcode":"","latitude":59.95,"longitude":10.5,"metro_code":"","areacode":""}
